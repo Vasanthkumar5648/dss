@@ -5,6 +5,11 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, LSTM
 from sklearn.model_selection import train_test_split
 import time
+
+df = pd.read_csv('https://raw.github.com/Vasanthkumar5648/dss/main/deliverytime.txt')
+
+
+R = 6371
 def deg_to_rad(degrees):
     return degrees * (np.pi/180)
 
@@ -15,6 +20,7 @@ def calculate_distance(lat1, lon1, lat2, lon2):
     a = np.sin(d_lat/2)**2 + np.cos(deg_to_rad(lat1)) * np.cos(deg_to_rad(lat2)) * np.sin(d_lon/2)**2
     c = 2 * np.arctan2(np.sqrt(a), np.sqrt(1-a))
     return R * c
+df = pd.read_csv('https://raw.github.com/Vasanthkumar5648/Food-Delivery-Time-Prediction/main/deliverytime.txt')
 
 df['distance'] = np.nan
 
