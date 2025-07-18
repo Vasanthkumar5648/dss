@@ -1,3 +1,5 @@
+scikit-learn
+pandas
 streamlit
 tensorflow # Last version with full Python 3.10 support
 protobuf   # Resolves common serialization issues
