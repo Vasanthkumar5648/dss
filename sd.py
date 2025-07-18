@@ -121,5 +121,5 @@ if submitted:
                     st.info("Average delivery time ⏱️")
                 else:
                     st.warning("Longer delivery time expected 🐢")
-        else:
-            st.error("Please enter valid location coordinates for both restaurant and delivery location.")
+else:
+    st.error("Please enter valid location coordinates for both restaurant and delivery location.")
