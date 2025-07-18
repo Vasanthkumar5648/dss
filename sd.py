@@ -14,7 +14,7 @@ def deg_to_rad(degrees):
     return degrees * (np.pi/180)
 
 # Haversine formula to calculate distance
-def calculate_distance(lat1, lon1, lat2, lon2):
+def distcalculate(lat1, lon1, lat2, lon2):
     d_lat = deg_to_rad(lat2-lat1)
     d_lon = deg_to_rad(lon2-lon1)
     a = np.sin(d_lat/2)**2 + np.cos(deg_to_rad(lat1)) * np.cos(deg_to_rad(lat2)) * np.sin(d_lon/2)**2
