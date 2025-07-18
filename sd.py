@@ -97,19 +97,24 @@ with st.form("delivery_form"):
         submitted = st.form_submit_button("Predict Delivery Time")
     
     # When form is submitted
-    if submitted:
-        if rest_lat and rest_lon and deliv_lat and deliv_lon:
-            # Calculate distance
-            distance = calculate_distance(rest_lat, rest_lon, deliv_lat, deliv_lon)
+if submitted:
+    if rest_lat and rest_lon and deliv_lat and deliv_lon:
+        distance = calculate_distance(rest_lat, rest_lon, deliv_lat, deliv_lon)
             
             # Display inputs
-            st.subheader("Input Summary")
-            col1, col2, col3 = st.columns(3)
-            col1.metric("Delivery Partner Age", f"{age} years")
-            col2.metric("Delivery Partner Ratings", f"{ratings}/5")
-            col3.metric("Distance", f"{distance:.2f} km")
-                    
-                # Visual indicator
+        st.subheader("Input Summary")
+        col1, col2, col3 = st.columns(3)
+        col1.metric("Delivery Partner Age", f"{age} years")
+        col2.metric("Delivery Partner Ratings", f"{ratings}/5")
+        col3.metric("Distance", f"{distance:.2f} km")
+        with st.spinner('Calculating delivery time...'):
+                time.sleep(2)
+                st.success("Prediction complete!")
+                
+                st.subheader("Predicted Delivery Time")
+                st.markdown(f"<h1 style='text-align: center; color: #4CAF50;'>{int(prediction)} minutes</h1>", unsafe_allow_html=True)            
+               
+        # Visual indicator
                 if prediction < 30:
                     st.success("Fast delivery expected! 🚀")
                 elif prediction < 45:
