@@ -34,7 +34,7 @@ x=np.array(df[["Delivery_person_Age",
               "distance"]])
 y=np.array(df[["Time_taken(min)"]])
 x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.10,random_state=42)
-prediction = max(15, min(120, distance * 2 + np.random.normal(10, 5) - (ratings * 3) + (age / 10)))
+#prediction = max(15, min(120, distance * 2 + np.random.normal(10, 5) - (ratings * 3) + (age / 10)))
 model = Sequential()
 model.add(LSTM(128, return_sequences=True, input_shape=(x_train.shape[1],1)))
 model.add(LSTM(64, return_sequences=False))
